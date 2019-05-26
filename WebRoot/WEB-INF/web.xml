@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name></display-name>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>com.servlet.AdminServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SuccessServlet</servlet-name>
+    <servlet-class>com.servlet.SuccessServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>about</servlet-name>
+    <servlet-class>com.forward.about</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>article_list_content</servlet-name>
+    <servlet-class>com.forward.article_list_content</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>article_list_more</servlet-name>
+    <servlet-class>com.forward.article_list_more</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>article_list</servlet-name>
+    <servlet-class>com.forward.article_list</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>index</servlet-name>
+    <servlet-class>com.forward.index</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>contact</servlet-name>
+    <servlet-class>com.forward.contact</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>message</servlet-name>
+    <servlet-class>com.forward.message</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>map</servlet-name>
+    <servlet-class>com.forward.map</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>productdetails</servlet-name>
+    <servlet-class>com.forward.productdetails</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>productlist</servlet-name>
+    <servlet-class>com.forward.productlist</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>top</servlet-name>
+    <servlet-class>com.forward.top</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ccc</servlet-name>
+    <servlet-class>com.servlet.ccc</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Dongtai</servlet-name>
+    <servlet-class>com.forward.Dongtai</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Product_info</servlet-name>
+    <servlet-class>com.forward.Product_info</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/admin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SuccessServlet</servlet-name>
+    <url-pattern>/ss</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>about</servlet-name>
+    <url-pattern>/about</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>article_list_content</servlet-name>
+    <url-pattern>/article_list_content</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>article_list_more</servlet-name>
+    <url-pattern>/article_list_more</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>article_list</servlet-name>
+    <url-pattern>/article_list</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>index</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>contact</servlet-name>
+    <url-pattern>/contact</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>message</servlet-name>
+    <url-pattern>/message</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>map</servlet-name>
+    <url-pattern>/map</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>productdetails</servlet-name>
+    <url-pattern>/productdetails</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>productlist</servlet-name>
+    <url-pattern>/productlist</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>top</servlet-name>
+    <url-pattern>/top</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ccc</servlet-name>
+    <url-pattern>/ccc</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Dongtai</servlet-name>
+    <url-pattern>/dongtai</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Product_info</servlet-name>
+    <url-pattern>/product_info</url-pattern>
+  </servlet-mapping>	
+  <welcome-file-list>
+    <welcome-file>index</welcome-file>
+  </welcome-file-list>
+</web-app>
