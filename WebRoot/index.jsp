@@ -7,6 +7,14 @@
 			+ path + "/";
 %>
 
+<%
+		ArrayList<Cosmetics> cos = (ArrayList<Cosmetics>) request
+				.getAttribute("cosmeticst");
+		ArrayList<ChanPinFenLei> cpfl = (ArrayList<ChanPinFenLei>) request
+				.getAttribute("cpfl");
+				ArrayList<ZiXunFenLei> zxfl = (ArrayList<ZiXunFenLei>) request
+				.getAttribute("zxfl");
+	%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -76,24 +84,20 @@
 		</section>
 	</div>
 	</section>
-	<%
-		ArrayList<KouHong> kh = (ArrayList<KouHong>) request
-				.getAttribute("KouHong");
-		KouHong kht = (KouHong) request.getAttribute("kouhongt"); 
-	%>
+	
 
 
 
 
 	<section class="index-product"> <main>
 	<ul>
+		<%
+				for (int i = 0; i < cpfl.size(); i++) {
+			%>
+		<li><a href="productlist"><%=cpfl.get(i).getName() %>系列</a>
+		</li>
+		<%} %>
 		
-		<li><a href="#">口红系列</a>
-		</li>
-		<li><a href="#">服装系列</a>
-		</li>
-		<li><a href="#">香水系列</a>
-		</li>
 	</ul>
 	</main> <main></main> <main></main> </section>
 	<div class="copyrights">
@@ -106,10 +110,10 @@
 	<div class="index-content">
 		<div class="product-list">
 			<%
-				for (int i = 0; i < kh.size(); i++) {
+				for (int i = 0; i < cos.size(); i++) {
 			%>
 			<div class="am-u-sm-6 am-u-md-6 am-u-lg-4">
-				<a href="product_info?type=<%=kh.get(i).getId()%>"> <%=kh.get(i).getImg()%> <%=kh.get(i).getName()%>
+				<a href="product_info?type=<%=cos.get(i).getId()%>"> <img src="<%=cos.get(i).getImg()%>"/> <%=cos.get(i).getName()%>
 					 </a>
 			</div>
 			<%
@@ -124,15 +128,19 @@
 	</div>
 	<div class="index-content">
 		<div class="new-index">
+		<ul>
+                <li>
+			<img src="<%cos.get(0).getImg();%>" style:"width='30px',height='40px'"></img></li>
+                <li>  <a href="article_list_content?type=<%=zxfl.get(0).getTid()%>"><h3><%=cos.get(0).getName() %></h3>
+                    <article><%=cos.get(0).getEffect() %></article></a></li>
+            </ul>
+			
 			<ul>
-				<li><img src="img/block9.jpg"></img></li>
-				<li><a href="article_list_content"><h3>迪奥#999</h3> <article>这款唇膏暗藏玄机的迪奥全新金属外壳具有非凡吸引力：为了彰显一抹个性奢华魅力，唇膏盖内皆以Dior迪奥的经典迷人色彩——#传奇红唇（#999）的色彩装点。</article>
-				</a>
-				</li>
-			</ul>
-			<ul>
-				<li><a href="article_list_content"><h3><%=kht.getName() %></h3> <article><%=kht.getEffect() %></article>
+			
+			<%for(int i=1;i<cos.size();i++){ %>
+				<li><a href="article_list_content?type=<%=zxfl.get(i).getTid()%>"><h3><%=cos.get(i).getName() %></h3> <article><%=cos.get(i).getEffect() %></article>
 				</a></li>
+				<%} %>
 			</ul>
 
 		</div>

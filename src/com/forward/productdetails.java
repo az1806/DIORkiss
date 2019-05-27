@@ -61,34 +61,38 @@ public class productdetails extends HttpServlet {
 		
 		ChanPinFenLeiDao cpfldao = new ChanPinFenLeiDaoImpl();
 		ArrayList<ChanPinFenLei> cpfl = cpfldao.selectChanPinFenLei();
-		request.setAttribute("cpfl", cpfl);
 		
-		FuZhuangDao fzdao = new FuZhuangDaoImpl();
-		ArrayList<FuZhuang> fz = fzdao.selectFuZhuang();
-		request.setAttribute("fuzhuang", fz);
-		
-		KouHongDao khDao = new KouHongDaoImpl();
-		ArrayList<KouHong> kh = khDao.selectKouHong();
-		request.setAttribute("KouHong", kh);
 		
 		LiuYanDao lydao = new LiuYanDaoImpl();
 		ArrayList<LiuYan> ly = lydao.selectLiuYan();
 		request.setAttribute("liuyan", ly);
 		
 		
-		XiangShuiDao xsdao = new XiangShuiDaoImpl();
-		ArrayList<XiangShui> xs = xsdao.selectXiangShui();
-		request.setAttribute("xiangshui", xs);
-	
+		int type;
+		if(request.getParameter("type")==null){
+			type=cpfl.get(0).getId();
+		}else{
+			type=Integer.parseInt(request.getParameter("type"));
+			
+			
+		}
+		CosmeticsDao cosmeticsDao = new CosmeticsDaoImpl();
+		Cosmetics cos = cosmeticsDao.selectcosmetics(type);
+		request.setAttribute("cosmetics", cos);
+		request.setAttribute("cpfl", cpfl);
+		
+		ArrayList<Cosmetics> co = cosmeticsDao.selectCosmetics(type);
+		request.setAttribute("Cosmetics", co);
+		
+		
+	  
 		
 		
 		ZiXunDao zxdao = new ZiXunDaoImpl();
 		ArrayList<ZiXun> zx = zxdao.selectZiXun();
 		request.setAttribute("zixun", zx);
 		
-		CosmeticsDao cosmeticsDao = new CosmeticsDaoImpl();
-		ArrayList<Cosmetics> co = cosmeticsDao.selectCosmetics();
-		request.setAttribute("Cosmetics", co);
+		
 		
 		
 		

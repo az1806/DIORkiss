@@ -18,6 +18,7 @@ import com.dao.KouHongDao;
 import com.dao.LiuYanDao;
 import com.dao.XiangShuiDao;
 import com.dao.ZiXunDao;
+import com.dao.ZiXunFenLeiDao;
 import com.dao.impl.ChanPinFenLeiDaoImpl;
 import com.dao.impl.CompanyDaoImpl;
 import com.dao.impl.CosmeticsDaoImpl;
@@ -27,6 +28,7 @@ import com.dao.impl.KouHongDaoImpl;
 import com.dao.impl.LiuYanDaoImpl;
 import com.dao.impl.XiangShuiDaoImpl;
 import com.dao.impl.ZiXunDaoImpl;
+import com.dao.impl.ZiXunFenLeiDaoImpl;
 import com.entity.ChanPinFenLei;
 import com.entity.Company;
 import com.entity.Cosmetics;
@@ -36,6 +38,7 @@ import com.entity.KouHong;
 import com.entity.LiuYan;
 import com.entity.XiangShui;
 import com.entity.ZiXun;
+import com.entity.ZiXunFenLei;
 
 public class index extends HttpServlet {
 
@@ -63,27 +66,47 @@ public class index extends HttpServlet {
 		request.setAttribute("company", com);
 		
 		
-		
-		
 		ChanPinFenLeiDao cpfldao = new ChanPinFenLeiDaoImpl();
 		ArrayList<ChanPinFenLei> cpfl = cpfldao.selectChanPinFenLei();
-		request.setAttribute("cpfl", cpfl);
+		int type;
+		if(request.getParameter("type")==null){
+			type=cpfl.get(0).getId();
+			
+			
+		}else{
+			type=Integer.parseInt(request.getParameter("type"));
+			
+			
+		}
 		
-		FuZhuangDao fzdao = new FuZhuangDaoImpl();
-		ArrayList<FuZhuang> fz = fzdao.selectFuZhuang();
-		request.setAttribute("fuzhuang", fz);
+		CosmeticsDao cosmeticsDao = new CosmeticsDaoImpl();
+		ArrayList<Cosmetics> co = cosmeticsDao.selectCosmetics(type);
+		request.setAttribute("Cosmetics", co);
+
+		request.setAttribute("cpfl", cpfl);		
 		
 		
+		ZiXunFenLeiDao zxfldao = new ZiXunFenLeiDaoImpl();
+		ArrayList<ZiXunFenLei> zxfl = zxfldao.selectZiXunFenLei();
+		int n;
+		if(request.getParameter("type")==null){
+			n=cpfl.get(0).getId();
+			
+			
+		}else{
+			n=Integer.parseInt(request.getParameter("type"));
+			
+			
+		}
 		
-		KouHongDao khDao = new KouHongDaoImpl();
-		ArrayList<KouHong> kh = khDao.selectKouHong();
-		request.setAttribute("KouHong", kh);
-		int type=(int) (Math.random()*1000%kh.size());
-		KouHongDao khdao = new KouHongDaoImpl();
-		KouHong kht= khdao.selectkouhong(type);
-		request.setAttribute("kouhongt", kht);
+		ZiXunDao zxdao = new ZiXunDaoImpl();
+		ArrayList<ZiXun> zx = zxdao.selectZiXun(n);
+		request.setAttribute("zixun", zx);
+		request.setAttribute("zxfl", zxfl);
 		
 		
+		ArrayList<Cosmetics> cos = cosmeticsDao.selectCosmetics();
+		request.setAttribute("cosmeticst", cos);
 		
 		
 		LiuYanDao lydao = new LiuYanDaoImpl();
@@ -91,19 +114,11 @@ public class index extends HttpServlet {
 		request.setAttribute("liuyan", ly);
 		
 		
-		XiangShuiDao xsdao = new XiangShuiDaoImpl();
-		ArrayList<XiangShui> xs = xsdao.selectXiangShui();
-		request.setAttribute("xiangshui", xs);
-	
 		
 		
-		ZiXunDao zxdao = new ZiXunDaoImpl();
-		ArrayList<ZiXun> zx = zxdao.selectZiXun();
-		request.setAttribute("zixun", zx);
 		
-		CosmeticsDao cosmeticsDao = new CosmeticsDaoImpl();
-		ArrayList<Cosmetics> co = cosmeticsDao.selectCosmetics();
-		request.setAttribute("Cosmetics", co);
+		
+		
 		
 		
 		

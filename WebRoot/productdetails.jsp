@@ -1,8 +1,17 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.entity.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+	<%
+	Cosmetics cos = (Cosmetics) request
+				.getAttribute("cosmetics");
+		ArrayList<Cosmetics> co = (ArrayList<Cosmetics>) request
+				.getAttribute("Cosmetics");
+				ArrayList<ChanPinFenLei> cpfl = (ArrayList<ChanPinFenLei>) request
+				.getAttribute("cpfl");
+	%>
+
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="zh-cn">
@@ -50,16 +59,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li>
                 <a>产品搜索</a>
                 <ul id="pro-search">
-                    <li><a><input type="text"  class="pro-search"><a class="pro-search-btn">搜索</a></a></li>
+                    <li><a><input type="text"  class="pro-search"><a class="pro-search-btn" >搜索</a></a></li>
                 </ul>
             </li>
             <li>
                 <a>产品分类</a>
                 <ul id="pro-category">
-                    <li class="on"><a href="#">椅子系列</a></li>
-                    <li><a href="#">餐桌系列</a></li>
-                    <li><a href="#">沙发系列</a></li>
-                    <li><a href="#">创意系列</a></li>
+                    <li class="on">
+                    <%for(int i=0;i<cpfl.size();i++){ %>
+                    <a href="productlist?type=<%=cpfl.get(i).getTid()%>"><%=cpfl.get(i).getName() %></a></li>
+                    <%} %>
                 </ul>
             </li>
         </ul>
@@ -69,22 +78,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <header>
             <p></p>
             <span>椅子系列</span>
-            <div class="product-nav"><a href="index.html">首页 </a>&#62;<a href="#">产品展示</a>&#62;<a>XX椅子</a></div>
+            <div class="product-nav"><a href="index">首页 </a>&#62;<a href="#">产品展示</a>&#62;<a><%=cos.getName()%> %></a></div>
         </header>
         <main>
             <div class="pro-right-left">
-                <div class="pro-details-img"><img src="images/proimg.jpg"></div>
+                <div class="pro-details-img"><img src="<%=cos.getImg()%>"></div>
 				
                 <div class="pro-detalis-carousel">
                     <div class="am-slider am-slider-default am-slider-carousel" data-am-flexslider="{itemWidth: 112, itemMargin: 4,move:5,  controlNav: false ,  slideshow: true}">
                         <ul class="am-slides pro-details">
+                         <%for(int i=0;i<co.size();i++){ %>
                             <li><img src="images/procarousel.png" /></li>
-                            <li><img src="images/team1.png" /></li>
-                            <li><img src="images/team2.png" /></li>
-                            <li><img src="images/team3.png" /></li>
-                            <li><img src="images/team4.png" /></li>
-                            <li><img src="images/procarousel.png" /></li>
-                            <li><img src="images/procarousel.png" /></li>
+                           <%} %>
                         </ul>
                     </div>
                 </div>
@@ -107,7 +112,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             <div class="am-tabs pro-tabs" data-am-tabs>
                 <ul class="am-tabs-nav am-nav am-nav-tabs">
-                    <li class="am-active"><a href="#tab1">详细说明1</a></li>
+                    <li class="am-active">
+                    <a href="#tab1">详细说明1</a></li>
                     <li><a href="#tab2">详细说明2</a></li>
                     <li><a href="#tab3">详细说明3</a></li>
                     <li><a href="#tab4">详细说明4</a></li>

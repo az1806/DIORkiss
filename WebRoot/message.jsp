@@ -1,8 +1,10 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.entity.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<% ArrayList<LiuYan> cos = (ArrayList<LiuYan>) request
+				.getAttribute("liuyan");%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="zh-cn">
@@ -32,25 +34,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
 <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
+<script type="text/javascript">
+function checkForm(){
+var contactWay=document.getElementById("contentWay").value;
+var contact=document.getElementById("content").value;
+if(contentWay==""){
+alert("联系方式不能为空！");
+return false;
+if(content==""){
+alert("留言信息不能为空！");
+return false;
+}
+return true;
+}</script>
 </head>
 <body>
 <jsp:include page="top.jsp"></jsp:include>
 <jsp:include page="dongtai.jsp"></jsp:include>
-<div class="am-slider am-slider-default" data-am-flexslider="{playAfterPaused: 8000}">
-    <ul class="am-slides">
-        <li><img src="images/banner.jpg" alt="" ></li>
-        <li><img src="images/banner.jpg" alt="" ></li>
-        <li><img src="images/banner.jpg" alt="" ></li>
-        <li><img src="images/banner.jpg" alt="" ></li>
-    </ul>
-</div>
+
 <div>
     <header class="header-article-list">
         <h1>在线留言</h1>
 
     </header>
 <div>
-   <form class="message-form" method="post" >
+   <form class="message-form" method="post" action="message" onsubmit="return checkForm(this)" >
 
        <label>姓名
            <input type="text" name="username">
@@ -59,24 +67,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
        <label>电话
-           <input type="text" name="tel">
+           <input type="text" id="contactWay" name="phone">
            <span>*</span>
        </label>
 
 
        <label>邮箱
-           <input type="email" name="email">
+           <input type="email"  name="email">
            <span>*</span>
        </label>
 
 
        <label>内容
-           <textarea></textarea>
+           <textarea name="content" id="content"> </textarea>
            <span>*</span>
        </label>
 
 
-       <button type="button" class="am-btn am-btn-danger">提交</button>
+       <button type="submit" id="submitMsg" class="am-btn am-btn-danger">提交</button>
    </form>
 </div>
 </div>

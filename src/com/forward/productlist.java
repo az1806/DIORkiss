@@ -65,27 +65,17 @@ public class productlist extends HttpServlet {
 		int type;
 		if(request.getParameter("type")==null){
 			type=cpfl.get(0).getId();
-			KouHongDao khDao = new KouHongDaoImpl();
-			ArrayList<KouHong> kh = khDao.selectKouHong();
-			request.setAttribute("KouHong", kh);
+			
 			
 		}else{
 			type=Integer.parseInt(request.getParameter("type"));
-			XiangShuiDao xsdao = new XiangShuiDaoImpl();
-			ArrayList<XiangShui> xs = xsdao.selectXiangShui();
-			request.setAttribute("xiangshui", xs);
 			
-			FuZhuangDao fzdao = new FuZhuangDaoImpl();
-			ArrayList<FuZhuang> fz = fzdao.selectFuZhuang();
-			request.setAttribute("fuzhuang", fz);
+			
 		}
+		CosmeticsDao cosmeticsDao = new CosmeticsDaoImpl();
+		ArrayList<Cosmetics> co = cosmeticsDao.selectCosmetics(type);
+		request.setAttribute("Cosmetics", co);
 		request.setAttribute("cpfl", cpfl);		
-		
-		
-		
-	
-		
-		
 		
 		LiuYanDao lydao = new LiuYanDaoImpl();
 		ArrayList<LiuYan> ly = lydao.selectLiuYan();
@@ -100,9 +90,7 @@ public class productlist extends HttpServlet {
 		ArrayList<ZiXun> zx = zxdao.selectZiXun();
 		request.setAttribute("zixun", zx);
 		
-		CosmeticsDao cosmeticsDao = new CosmeticsDaoImpl();
-		ArrayList<Cosmetics> co = cosmeticsDao.selectCosmetics();
-		request.setAttribute("Cosmetics", co);
+		
 		
 		
 		

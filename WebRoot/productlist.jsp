@@ -33,7 +33,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
 </head>
-<%
+
+	<%
+				ArrayList<Cosmetics> cos = (ArrayList<Cosmetics>) request
+				.getAttribute("Cosmetics");
 				ArrayList<ChanPinFenLei> cpfl = (ArrayList<ChanPinFenLei>) request
 				.getAttribute("cpfl");
 	%>
@@ -49,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li>
                 <a>产品搜索</a>
                 <ul id="pro-search">
-                    <li><a><input type="text"  class="pro-search"><a class="pro-search-btn">搜索</a></a></li>
+                    <li><a href="product_infot"><input type="text"  class="pro-search" name="sousuo" ><a class="pro-search-btn"  href="product_infot">搜索</a></a></li>
                 </ul>
             </li>
             <li>
@@ -57,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <ul id="pro-category">
                 <%for(int i=0;i<cpfl.size();i++){ %>
                     <li class="on">
-                        <a href="productlist?type=<%=cpfl.get(i).getTid()%>"><%=cpfl.get(i).getClasst()%></a></li>
+                        <a href="productlist?type=<%=cpfl.get(i).getTid()%>"><%=cpfl.get(i).getName()%></a></li>
                     <%} %>
                 </ul>
             </li>
@@ -68,17 +71,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <header>
 
                     <p></p>
-            <span>椅子系列</span>
+            <span>系列</span>
         </header>
         <ul>
+        <%for(int i=0;i<cos.size();i++){ %>
             <li >
-                <a href="productdetails">
+                <a href="productdetails?type=<%=cos.get(i).getId() %>">
                 <div class="img-box">
-                    <img src="images/pro1.png">
-                    <p>软皮椅</p>
+               
+                    <img src="<%=cos.get(i).getImg() %>">
+                    <p><%=cos.get(i).getName() %></p>
                 </div>
                 </a>
             </li>
+            <%} %>
         </ul>
 		<!--
         <div class="pro_list_more_pages">

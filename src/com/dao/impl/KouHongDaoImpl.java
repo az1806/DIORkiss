@@ -53,6 +53,7 @@ public class KouHongDaoImpl implements KouHongDao{
 					u.setEffect(rs.getString("effect"));
 					u.setPrice(rs.getDouble("price"));
 					u.setImg(rs.getString("img"));
+					u.setTid(rs.getInt("tid"));
 					khs.add(u);
 				}
 			} catch (SQLException e) {

@@ -18,6 +18,7 @@ import com.dao.KouHongDao;
 import com.dao.LiuYanDao;
 import com.dao.XiangShuiDao;
 import com.dao.ZiXunDao;
+import com.dao.ZiXunFenLeiDao;
 import com.dao.impl.ChanPinFenLeiDaoImpl;
 import com.dao.impl.CompanyDaoImpl;
 import com.dao.impl.CosmeticsDaoImpl;
@@ -27,6 +28,7 @@ import com.dao.impl.KouHongDaoImpl;
 import com.dao.impl.LiuYanDaoImpl;
 import com.dao.impl.XiangShuiDaoImpl;
 import com.dao.impl.ZiXunDaoImpl;
+import com.dao.impl.ZiXunFenLeiDaoImpl;
 import com.entity.ChanPinFenLei;
 import com.entity.Company;
 import com.entity.Cosmetics;
@@ -36,6 +38,7 @@ import com.entity.KouHong;
 import com.entity.LiuYan;
 import com.entity.XiangShui;
 import com.entity.ZiXun;
+import com.entity.ZiXunFenLei;
 
 public class article_list_content extends HttpServlet {
 
@@ -63,32 +66,34 @@ public class article_list_content extends HttpServlet {
 		ArrayList<ChanPinFenLei> cpfl = cpfldao.selectChanPinFenLei();
 		request.setAttribute("cpfl", cpfl);
 		
-		FuZhuangDao fzdao = new FuZhuangDaoImpl();
-		ArrayList<FuZhuang> fz = fzdao.selectFuZhuang();
-		request.setAttribute("fuzhuang", fz);
 		
-		KouHongDao khDao = new KouHongDaoImpl();
-		ArrayList<KouHong> kh = khDao.selectKouHong();
-		request.setAttribute("KouHong", kh);
 		
 		LiuYanDao lydao = new LiuYanDaoImpl();
 		ArrayList<LiuYan> ly = lydao.selectLiuYan();
 		request.setAttribute("liuyan", ly);
 		
+		ZiXunFenLeiDao zxfldao = new ZiXunFenLeiDaoImpl();
+		ArrayList<ZiXunFenLei> zxfl = zxfldao.selectZiXunFenLei();
 		
-		XiangShuiDao xsdao = new XiangShuiDaoImpl();
-		ArrayList<XiangShui> xs = xsdao.selectXiangShui();
-		request.setAttribute("xiangshui", xs);
+		
+		int type;
+		if(request.getParameter("type")==null){
+			type=zxfl.get(0).getId();
+		}else{
+			type=Integer.parseInt(request.getParameter("type"));
+		}
 	
-		
-		
 		ZiXunDao zxdao = new ZiXunDaoImpl();
-		ArrayList<ZiXun> zx = zxdao.selectZiXun();
+		ZiXun zx = zxdao.oneZiXun(type);
 		request.setAttribute("zixun", zx);
 		
-		CosmeticsDao cosmeticsDao = new CosmeticsDaoImpl();
-		ArrayList<Cosmetics> co = cosmeticsDao.selectCosmetics();
-		request.setAttribute("Cosmetics", co);
+
+		request.setAttribute("zxfl", zxfl);
+		
+		
+		
+		
+		
 		
 		
 		

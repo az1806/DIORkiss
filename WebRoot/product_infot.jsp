@@ -1,10 +1,7 @@
-<%@ page language="java" import="java.util.*,com.entity.*"
-	pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.entity.*" pageEncoding="ISO-8859-1"%>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -12,8 +9,8 @@
 <head>
 <base href="<%=basePath%>">
 <%
-	ArrayList<Cosmetics> cost=(ArrayList<Cosmetics>)request.getAttribute("cosmetics");
-			Cosmetics cos=(Cosmetics)request.getAttribute("Cosmetics");
+	ArrayList<Cosmetics> cos=(ArrayList<Cosmetics>)request.getAttribute("cosmetics");
+			
 %>
 <title>My JSP 'product_info.jsp' starting page</title>
 
@@ -31,17 +28,18 @@
 <body>
 	
 	<div class="am-u-sm-6 am-u-md-6 am-u-lg-4">
-		
-	<img src="<%=cos.getImg()%>"/> 
-		<%=cos.getName()%>
-		<%=cos.getColour()%> 
-		<%=cos.getColoursize()%> 
-		<%=cos.getEffect()%>
-		<%=cos.getPrice()%>
+		<%for(int i=0;i<cos.size();i++) {%>
+	<img src="<%=cos.get(i).getImg()%>"/> 
+		<%=cos.get(i).getName()%>
+		<%=cos.get(i).getColour()%> 
+		<%=cos.get(i).getColoursize()%> 
+		<%=cos.get(i).getEffect()%>
+		<%=cos.get(i).getPrice()%>
 		 
-		 
+		 <%} %>
 	</div>
 	
 
 </body>
 </html>
+

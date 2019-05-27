@@ -51,47 +51,15 @@ public class message extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		CompanyDao comDao = new CompanyDaoImpl();
 		Company com = comDao.queryCompany();
 		request.setAttribute("company", com);
-		
-		
-		ChanPinFenLeiDao cpfldao = new ChanPinFenLeiDaoImpl();
-		ArrayList<ChanPinFenLei> cpfl = cpfldao.selectChanPinFenLei();
-		request.setAttribute("cpfl", cpfl);
-		
-		FuZhuangDao fzdao = new FuZhuangDaoImpl();
-		ArrayList<FuZhuang> fz = fzdao.selectFuZhuang();
-		request.setAttribute("fuzhuang", fz);
-		
-		KouHongDao khDao = new KouHongDaoImpl();
-		ArrayList<KouHong> kh = khDao.selectKouHong();
-		request.setAttribute("KouHong", kh);
-		
-		LiuYanDao lydao = new LiuYanDaoImpl();
-		ArrayList<LiuYan> ly = lydao.selectLiuYan();
-		request.setAttribute("liuyan", ly);
-		
-		
-		XiangShuiDao xsdao = new XiangShuiDaoImpl();
-		ArrayList<XiangShui> xs = xsdao.selectXiangShui();
-		request.setAttribute("xiangshui", xs);
-	
-		
-		
-		ZiXunDao zxdao = new ZiXunDaoImpl();
-		ArrayList<ZiXun> zx = zxdao.selectZiXun();
-		request.setAttribute("zixun", zx);
-		
-		CosmeticsDao cosmeticsDao = new CosmeticsDaoImpl();
-		ArrayList<Cosmetics> co = cosmeticsDao.selectCosmetics();
-		request.setAttribute("Cosmetics", co);
-		
-		
-		
+		LiuYanDao lydao=new LiuYanDaoImpl();
+		ArrayList<LiuYan> lys = lydao.selectLiuYan();
+		request.setAttribute("liuyan", lys);
+
 		DongTaiDao DongTai = new DongTaiDaoImpl();
 		ArrayList<DongTai> dt = DongTai.selectDongTai();
 		request.setAttribute("dongtai", dt);
@@ -110,20 +78,38 @@ public class message extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out =response.getWriter();
+		CompanyDao comDao = new CompanyDaoImpl();
+		Company com = comDao.queryCompany();
+		request.setAttribute("company", com);
+		
+		
+String 	name=	request.getParameter("username");
+String 	phone=		request.getParameter("phone");
+String 	email=		request.getParameter("email");
+String 	content=	request.getParameter("content");
+	 String	sql="insert liuyan (name,phone,email,content)  values ('"+ name + "','" + phone + "','" + email + "','" +content  + "')";
+			LiuYanDao lydao=new LiuYanDaoImpl();
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.print("    This is ");
-		out.print(this.getClass());
-		out.println(", using the POST method");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
+			int ly=lydao.insertLiuYan(sql);
+				if(ly>0){
+					
+					out.println("<script>alert('¡Ù—‘≥…π¶');"+"location.href='/DIORkiss/message'</script>");
+					
+					
+				}else{
+					out.println("<script>alert('¡Ù—‘ ß∞‹');"+"location.href='/DIORkiss/message'</script>");
+				
+				}
+		
+		
+
+		
+		
+		
 	}
 
 }

@@ -56,4 +56,12 @@ public class LiuYanDaoImpl implements LiuYanDao{
 		return zxs;
 	}
 
+	public int insertLiuYan(String sql) {
+		int n = JdbcUtil.updateSQL(sql);
+		if (n == 1) {
+			return 1;
+		}
+		return 0;
+	}
+
 }

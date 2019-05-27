@@ -16,6 +16,7 @@ import com.dao.DongTaiDao;
 import com.dao.FuZhuangDao;
 import com.dao.KouHongDao;
 import com.dao.LiuYanDao;
+import com.dao.UserDao;
 import com.dao.XiangShuiDao;
 import com.dao.ZiXunDao;
 import com.dao.impl.ChanPinFenLeiDaoImpl;
@@ -25,6 +26,7 @@ import com.dao.impl.DongTaiDaoImpl;
 import com.dao.impl.FuZhuangDaoImpl;
 import com.dao.impl.KouHongDaoImpl;
 import com.dao.impl.LiuYanDaoImpl;
+import com.dao.impl.UserDaoImpl;
 import com.dao.impl.XiangShuiDaoImpl;
 import com.dao.impl.ZiXunDaoImpl;
 import com.entity.ChanPinFenLei;
@@ -34,6 +36,7 @@ import com.entity.DongTai;
 import com.entity.FuZhuang;
 import com.entity.KouHong;
 import com.entity.LiuYan;
+import com.entity.User;
 import com.entity.XiangShui;
 import com.entity.ZiXun;
 
@@ -62,22 +65,16 @@ public class about extends HttpServlet {
 		ArrayList<ChanPinFenLei> cpfl = cpfldao.selectChanPinFenLei();
 		request.setAttribute("cpfl", cpfl);
 		
-		FuZhuangDao fzdao = new FuZhuangDaoImpl();
-		ArrayList<FuZhuang> fz = fzdao.selectFuZhuang();
-		request.setAttribute("fuzhuang", fz);
 		
-		KouHongDao khDao = new KouHongDaoImpl();
-		ArrayList<KouHong> kh = khDao.selectKouHong();
-		request.setAttribute("KouHong", kh);
 		
 		LiuYanDao lydao = new LiuYanDaoImpl();
 		ArrayList<LiuYan> ly = lydao.selectLiuYan();
 		request.setAttribute("liuyan", ly);
 		
 		
-		XiangShuiDao xsdao = new XiangShuiDaoImpl();
-		ArrayList<XiangShui> xs = xsdao.selectXiangShui();
-		request.setAttribute("xiangshui", xs);
+		UserDao userdao = new UserDaoImpl();
+		ArrayList<User> user = userdao.selectUsers();
+		request.setAttribute("user", user);
 	
 		
 		
@@ -85,9 +82,7 @@ public class about extends HttpServlet {
 		ArrayList<ZiXun> zx = zxdao.selectZiXun();
 		request.setAttribute("zixun", zx);
 		
-		CosmeticsDao cosmeticsDao = new CosmeticsDaoImpl();
-		ArrayList<Cosmetics> co = cosmeticsDao.selectCosmetics();
-		request.setAttribute("Cosmetics", co);
+		
 		
 		
 		

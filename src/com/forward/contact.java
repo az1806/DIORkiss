@@ -86,9 +86,7 @@ public class contact extends HttpServlet {
 		ArrayList<ZiXun> zx = zxdao.selectZiXun();
 		request.setAttribute("zixun", zx);
 		
-		CosmeticsDao cosmeticsDao = new CosmeticsDaoImpl();
-		ArrayList<Cosmetics> co = cosmeticsDao.selectCosmetics();
-		request.setAttribute("Cosmetics", co);
+		
 		
 		
 		

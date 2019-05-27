@@ -8,7 +8,7 @@ public class KouHong {
 	private String effect;
 	private double price;
 	private String img;
-	
+	private int tid;
 	
 	
 	
@@ -22,7 +22,7 @@ public class KouHong {
 	
 	
 	public KouHong(int id, String name, String coloursize, String colour,
-			String effect, double price,String img) {
+			String effect, double price,String img,int tid) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -31,10 +31,22 @@ public class KouHong {
 		this.effect = effect;
 		this.price = price;
 		this.img = img;
+		this.tid=tid;
+	}
+
+
+	public int getTid() {
+		return tid;
 	}
 
 
 
+
+
+
+	public void setTid(int tid) {
+		this.tid = tid;
+	}
 
 
 

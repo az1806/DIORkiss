@@ -33,7 +33,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
 </head>
-<% Company com = (Company) request.getAttribute("company"); %>
+<% Company com = (Company) request.getAttribute("company"); 
+ ArrayList<User> user=(ArrayList<User>) request.getAttribute("user");
+%>
 <body>
 <jsp:include page="top.jsp"></jsp:include>
 
@@ -74,26 +76,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <span>DESIGN TEAM</span>
         </div>
         <div class="about-team-headimg">
+        <%for(int i=0;i<user.size();i++) {%>
         <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
-            <img src="images/team1.png" alt="">
-            <p></p>
-            <span>首席金牌设计师</span>
+            <img src="<%=user.get(i).getImg() %>" alt="">
+            <p><%=user.get(i).getUsername() %></p>
+            <span><%=user.get(i).getPosition() %></span>
         </div>
-        <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
-            <img src="images/team2.png" alt="">
-            <p>刘凯丽</p>
-            <span>首席金牌设计师</span>
-        </div>
-        <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
-            <img src="images/team3.png" alt="">
-            <p>小李子</p>
-            <span>首席金牌设计师</span>
-        </div>
-        <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
-            <img src="images/team4.png" alt="">
-            <p>Lisa</p>
-            <span>首席金牌设计师</span>
-        </div>
+       <%} %>
         </div>
         <div class="about-slogan">
             <div>

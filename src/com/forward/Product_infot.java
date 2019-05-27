@@ -13,34 +13,22 @@ import com.dao.ChanPinFenLeiDao;
 import com.dao.CompanyDao;
 import com.dao.CosmeticsDao;
 import com.dao.DongTaiDao;
-import com.dao.FuZhuangDao;
-import com.dao.KouHongDao;
 import com.dao.LiuYanDao;
-import com.dao.XiangShuiDao;
 import com.dao.ZiXunDao;
-import com.dao.ZiXunFenLeiDao;
 import com.dao.impl.ChanPinFenLeiDaoImpl;
 import com.dao.impl.CompanyDaoImpl;
 import com.dao.impl.CosmeticsDaoImpl;
 import com.dao.impl.DongTaiDaoImpl;
-import com.dao.impl.FuZhuangDaoImpl;
-import com.dao.impl.KouHongDaoImpl;
 import com.dao.impl.LiuYanDaoImpl;
-import com.dao.impl.XiangShuiDaoImpl;
 import com.dao.impl.ZiXunDaoImpl;
-import com.dao.impl.ZiXunFenLeiDaoImpl;
 import com.entity.ChanPinFenLei;
 import com.entity.Company;
 import com.entity.Cosmetics;
 import com.entity.DongTai;
-import com.entity.FuZhuang;
-import com.entity.KouHong;
 import com.entity.LiuYan;
-import com.entity.XiangShui;
 import com.entity.ZiXun;
-import com.entity.ZiXunFenLei;
 
-public class article_list extends HttpServlet {
+public class Product_infot extends HttpServlet {
 
 	/**
 	 * The doGet method of the servlet. <br>
@@ -67,19 +55,7 @@ public class article_list extends HttpServlet {
 		request.setAttribute("cpfl", cpfl);
 		
 		
-		ZiXunFenLeiDao zxfldao = new ZiXunFenLeiDaoImpl();
-		ArrayList<ZiXunFenLei> zxfl = zxfldao.selectZiXunFenLei();
 		
-		int type;
-		if(request.getParameter("type")==null){
-			type=zxfl.get(0).getId();
-		}else{
-			type=Integer.parseInt(request.getParameter("type"));
-		}
-		ZiXunDao zxdao = new ZiXunDaoImpl();
-		ArrayList<ZiXun> zx = zxdao.selectZiXun(type);
-		request.setAttribute("zixun", zx);
-		request.setAttribute("zxfl", zxfl);
 		
 		
 		LiuYanDao lydao = new LiuYanDaoImpl();
@@ -90,8 +66,29 @@ public class article_list extends HttpServlet {
 		
 	
 		
+		int type;
+		if(request.getParameter("type")==null){
+			type=cpfl.get(0).getId();
+		}else{
+			type=Integer.parseInt(request.getParameter("type"));
+		}
+		CosmeticsDao cosmeticsDao = new CosmeticsDaoImpl();
+		Cosmetics co = cosmeticsDao.selectcosmetics(type);
+		request.setAttribute("Cosmetics", co);
+		
+		response.setContentType("text/html;charset='utf-8'");
+//		PrintWriter out=resonpse.getWriter();
 		
 		
+		 String name=request.getParameter("sousuo");
+		 System.out.println(name);
+		ArrayList<Cosmetics> cos=cosmeticsDao.selectcos(name);
+		System.out.println(cos);
+		request.setAttribute("cosmetics", cos);
+		
+		ZiXunDao zxdao = new ZiXunDaoImpl();
+		ArrayList<ZiXun> zx = zxdao.selectZiXun();
+		request.setAttribute("zixun", zx);
 		
 		
 		
@@ -100,7 +97,7 @@ public class article_list extends HttpServlet {
 		DongTaiDao DongTai = new DongTaiDaoImpl();
 		ArrayList<DongTai> dt = DongTai.selectDongTai();
 		request.setAttribute("dongtai", dt);
-		request.getRequestDispatcher("/article_list.jsp").forward(request, response);
+		request.getRequestDispatcher("/product_infot.jsp").forward(request, response);
 	}
 
 	/**
