@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 
         <div class="footer-info">
             <div class="footer-content">
-                <img src="images/qccode.png" alt="">
+                
                <div>
                 <p>招商热线:<%= com.getPhone() %></p>
                 <div class="footer-box">

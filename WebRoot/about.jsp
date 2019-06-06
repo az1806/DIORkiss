@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
 </head>
 <% Company com = (Company) request.getAttribute("company"); 
- ArrayList<User> user=(ArrayList<User>) request.getAttribute("user");
+ ArrayList<Designer> des=(ArrayList<Designer>) request.getAttribute("des");
 %>
 <body>
 <jsp:include page="top.jsp"></jsp:include>
@@ -73,14 +73,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="about-team">
         <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
             <p >关于我们</p>
-            <span>DESIGN TEAM</span>
+            <span>WE ARE TEAM</span>
         </div>
         <div class="about-team-headimg">
-        <%for(int i=0;i<user.size();i++) {%>
+        <%for(int i=0;i<des.size();i++) {%>
         <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
-            <img src="<%=user.get(i).getImg() %>" alt="">
-            <p><%=user.get(i).getUsername() %></p>
-            <span><%=user.get(i).getPosition() %></span>
+            <img src="<%=des.get(i).getImg() %>" alt="">
+            <p><%=des.get(i).getName() %></p>
+            <span><%=des.get(i).getPosition() %></span>
         </div>
        <%} %>
         </div>

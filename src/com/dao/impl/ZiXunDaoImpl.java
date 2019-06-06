@@ -13,16 +13,16 @@ public class ZiXunDaoImpl implements ZiXunDao{
 
 	public ZiXun oneZiXun(int type) {
 		ZiXun zx = new ZiXun();
-		ResultSet rs = JdbcUtil.querySQL("select * from ZiXun where tid="+type +" limit 1");
+		ResultSet rs = JdbcUtil.querySQL("select * from ZiXun where tid="+type);
 		//查询限定行数
 		try {
 			while (rs.next()) {
-				zx.setId(rs.getInt(1));
-				zx.setH(rs.getString(2));
-				zx.setName(rs.getString(4));
-				zx.setContent(rs.getString(3));
-				zx.setTid(rs.getInt(5));
-				zx.setTime(rs.getDate(6));
+				zx.setId(rs.getInt("id"));
+				zx.setH(rs.getString("h"));
+				zx.setName(rs.getString("name"));
+				zx.setContent(rs.getString("content"));
+				zx.setTid(rs.getInt("tid"));
+				zx.setTime(rs.getDate("time"));
 			}
 
 		} catch (SQLException e) {
@@ -42,12 +42,12 @@ public class ZiXunDaoImpl implements ZiXunDao{
 			try {
 				while (rs.next()) {
 					ZiXun u = new ZiXun();
-					u.setId(rs.getInt(1));
-					u.setH(rs.getString(2));
-					u.setName(rs.getString(4));
-					u.setContent(rs.getString(3));
-					u.setTid(rs.getInt(5));
-					u.setTime(rs.getDate(6));
+					u.setId(rs.getInt("id"));
+					u.setH(rs.getString("h"));
+					u.setName(rs.getString("name"));
+					u.setContent(rs.getString("content"));
+					u.setTid(rs.getInt("tid"));
+					u.setTime(rs.getDate("time"));
 					zxs.add(u);
 				}
 			} catch (SQLException e) {
@@ -67,12 +67,12 @@ public class ZiXunDaoImpl implements ZiXunDao{
 			try {
 				while (rs.next()) {
 					ZiXun u = new ZiXun();
-					u.setId(rs.getInt(1));
-					u.setH(rs.getString(2));
-					u.setName(rs.getString(4));
-					u.setContent(rs.getString(3));
-					u.setTid(rs.getInt(5));
-					u.setTime(rs.getDate(6));
+					u.setId(rs.getInt("id"));
+					u.setH(rs.getString("h"));
+					u.setName(rs.getString("name"));
+					u.setContent(rs.getString("content"));
+					u.setTid(rs.getInt("tid"));
+					u.setTime(rs.getDate("time"));
 					zxs.add(u);
 				}
 			} catch (SQLException e) {

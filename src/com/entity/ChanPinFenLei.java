@@ -3,7 +3,7 @@ package com.entity;
 public class ChanPinFenLei {
 private int id;
 private String classt;
-private int tid;
+
 private String name;
 private String img;
 public int getId() {
@@ -18,12 +18,7 @@ public String getClasst() {
 public void setClasst(String classt) {
 	this.classt = classt;
 }
-public int getTid() {
-	return tid;
-}
-public void setTid(int tid) {
-	this.tid = tid;
-}
+
 public String getName() {
 	return name;
 }
@@ -36,18 +31,19 @@ public String getImg() {
 public void setImg(String img) {
 	this.img = img;
 }
-public ChanPinFenLei(int id, String classt, int tid, String name, String img) {
+public ChanPinFenLei(int id, String classt, String name, String img) {
 	super();
 	this.id = id;
 	this.classt = classt;
-	this.tid = tid;
+	
 	this.name = name;
 	this.img = img;
 }
+
 @Override
 public String toString() {
-	return "ChanPinFenLei [id=" + id + ", classt=" + classt + ", tid=" + tid
-			+ ", name=" + name + ", img=" + img + "]";
+	return "ChanPinFenLei [id=" + id + ", classt=" + classt + ", name=" + name
+			+ ", img=" + img + "]";
 }
 public ChanPinFenLei() {
 	

@@ -91,9 +91,6 @@ public class productlist extends HttpServlet {
 		request.setAttribute("zixun", zx);
 		
 		
-		
-		
-		
 		DongTaiDao DongTai = new DongTaiDaoImpl();
 		ArrayList<DongTai> dt = DongTai.selectDongTai();
 		request.setAttribute("dongtai", dt);

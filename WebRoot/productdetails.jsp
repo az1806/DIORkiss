@@ -45,14 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <jsp:include page="top.jsp"></jsp:include>
 <jsp:include page="dongtai.jsp"></jsp:include>
-<div class="am-slider am-slider-default" data-am-flexslider="{playAfterPaused: 8000}">
-    <ul class="am-slides">
-        <li><img src="images/banner.jpg" alt="" ></li>
-        <li><img src="images/banner.jpg" alt="" ></li>
-        <li><img src="images/banner.jpg" alt="" ></li>
-        <li><img src="images/banner.jpg" alt="" ></li>
-    </ul>
-</div>
+
 <section class="pro-list">
     <aside class="pro-leftsidebar">
         <ul>
@@ -65,9 +58,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li>
                 <a>产品分类</a>
                 <ul id="pro-category">
-                    <li class="on">
+                    
                     <%for(int i=0;i<cpfl.size();i++){ %>
-                    <a href="productlist?type=<%=cpfl.get(i).getTid()%>"><%=cpfl.get(i).getName() %></a></li>
+                    <li class="on">
+                    <a href="productlist?type=<%=cpfl.get(i).getId()%>"><%=cpfl.get(i).getName() %></a></li>
                     <%} %>
                 </ul>
             </li>
@@ -78,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <header>
             <p></p>
             <span>椅子系列</span>
-            <div class="product-nav"><a href="index">首页 </a>&#62;<a href="#">产品展示</a>&#62;<a><%=cos.getName()%> %></a></div>
+            <div class="product-nav"><a href="index">首页 </a>&#62;<a href="#">产品展示</a>&#62;<a><%=cos.getName()%> </a></div>
         </header>
         <main>
             <div class="pro-right-left">
@@ -98,66 +92,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="pro-right-right">
                 <ul class="pro-right-info-constant">
                     <li>产品名称:</li>
-                    <li>产品材质:</li>
+                    <li>产品分类:</li>
                     <li>产品售价:</li>
-                    <li>市场价:</li>
+                    <li>产品说明：</li>
                 </ul>
                 <ul class="pro-right-info-variable">
-                    <li>软皮椅</li>
-                    <li>真皮</li>
-                    <li>$260.00</li>
-                    <li>$280.00</li>
+                    <li><%=cos.getName() %></li>
+                    <li><%=cos.getType()%></li>
+                    <li><%=cos.getPrice() %></li>
+                    <li><%=cos.getSize() %></li>
                 </ul>
             </div>
 
             <div class="am-tabs pro-tabs" data-am-tabs>
                 <ul class="am-tabs-nav am-nav am-nav-tabs">
                     <li class="am-active">
-                    <a href="#tab1">详细说明1</a></li>
-                    <li><a href="#tab2">详细说明2</a></li>
-                    <li><a href="#tab3">详细说明3</a></li>
-                    <li><a href="#tab4">详细说明4</a></li>
+                    <a href="#tab1">详细说明</a></li>
+                  <%=cos.getEffect() %>
                 </ul>
 
                 <div class="am-tabs-bd">
                     <div class="am-tab-panel am-active" id="tab1">
                         <ul>
                             <li>
-                                <span class="pro-tabs-constant">品牌:</span>
-                                <span class="pro-tabs-variable">XXX</span>
+                                <span class="pro-tabs-constant">适合性别:</span>
+                                <span class="pro-tabs-variable"><%=cos.getGirlc() %></span>
                             </li>
                             <li>
-                                <span class="pro-tabs-constant">是否组装:</span>
-                                <span class="pro-tabs-variable">NO</span>
-                            </li>
-                            <li>
-                                <span class="pro-tabs-constant">是否可定制:</span>
-                                <span class="pro-tabs-variable">yes</span>
-                            </li>
-                            <li>
-                                <span class="pro-tabs-constant">型号:</span>
-                                <span class="pro-tabs-variable">000000</span>
-                            </li>
-                            <li>
-                                <span class="pro-tabs-constant">颜色分类:</span>
-                                <span class="pro-tabs-variable">卡其</span>
-                            </li>
-                            <li>
-                                <span class="pro-tabs-constant">设计元素:</span>
-                                <span class="pro-tabs-variable">大师设计</span>
-                            </li> <li>
-                            <span class="pro-tabs-constant">风格:</span>
-                            <span class="pro-tabs-variable">日式</span>
-                        </li>
-                            <li>
-                                <span class="pro-tabs-constant">款式定位:</span>
-                                <span class="pro-tabs-variable">现代</span>
+                                <span class="pro-tabs-constant">风格:</span>
+                                <span class="pro-tabs-variable"><%=cos.getStyle() %></span>
                             </li>
                         </ul>
                     </div>
-                    <div class="am-tab-panel" id="tab2">2</div>
-                    <div class="am-tab-panel" id="tab3">3</div>
-                    <div class="am-tab-panel" id="tab4">4</div>
+                    
                 </div>
             </div>
         </main>

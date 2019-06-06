@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.dao.ChanPinFenLeiDao;
 import com.dao.CompanyDao;
 import com.dao.CosmeticsDao;
+import com.dao.DesignerDao;
 import com.dao.DongTaiDao;
 import com.dao.FuZhuangDao;
 import com.dao.KouHongDao;
@@ -22,6 +23,7 @@ import com.dao.ZiXunDao;
 import com.dao.impl.ChanPinFenLeiDaoImpl;
 import com.dao.impl.CompanyDaoImpl;
 import com.dao.impl.CosmeticsDaoImpl;
+import com.dao.impl.DesignerDaoImpl;
 import com.dao.impl.DongTaiDaoImpl;
 import com.dao.impl.FuZhuangDaoImpl;
 import com.dao.impl.KouHongDaoImpl;
@@ -32,6 +34,7 @@ import com.dao.impl.ZiXunDaoImpl;
 import com.entity.ChanPinFenLei;
 import com.entity.Company;
 import com.entity.Cosmetics;
+import com.entity.Designer;
 import com.entity.DongTai;
 import com.entity.FuZhuang;
 import com.entity.KouHong;
@@ -72,9 +75,9 @@ public class about extends HttpServlet {
 		request.setAttribute("liuyan", ly);
 		
 		
-		UserDao userdao = new UserDaoImpl();
-		ArrayList<User> user = userdao.selectUsers();
-		request.setAttribute("user", user);
+		DesignerDao desdao = new DesignerDaoImpl();
+		ArrayList<Designer> des = desdao.selectDesigner();
+		request.setAttribute("des", des);
 	
 		
 		

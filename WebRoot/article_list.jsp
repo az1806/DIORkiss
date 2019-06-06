@@ -12,7 +12,9 @@
 			"yy--MM--dd--HH--mm--ss");
 	
 %>
-<%ArrayList<ZiXun> zx=(ArrayList<ZiXun>) request.getAttribute("zixun"); 
+<%
+ArrayList<ZiXunFenLei> zxfl=(ArrayList<ZiXunFenLei>)request.getAttribute("zxfl");
+ArrayList<ZiXun> zx=(ArrayList<ZiXun>) request.getAttribute("zixun"); 
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="zh-cn">
@@ -50,13 +52,26 @@
 	<div class="am-slider am-slider-default"
 		data-am-flexslider="{playAfterPaused: 8000}"></div>
 	<div>
-		<header class="header-article-list">
-		<div class="article-position"></div>
-
-		<div class="article-more-btn">
-			<a href="article_list_more">MORE &#62; &#62;</a>
-		</div>
-		</header>
+		 <header class="header-article-list">
+        <div class="article-position">
+          <a  href="article_list_content">
+              <span>上一篇</span>
+              <span>DIORkiss经营内容</span>
+          </a>
+        </div>
+        <ul>
+        <%for(int i=0;i<zxfl.size();i++) {%>
+            <li class="article-on">
+            <a href="article_list?type=<%=zxfl.get(i).getId()%>"><%=zxfl.get(i).getName() %></a></li>
+            <%} %>
+        </ul>
+        <div class="article-more-btn">
+            <a href="article_list_content">
+                <span>下一篇</span>
+                <span>DIORkiss经营内容</span>
+            </a>
+        </div>
+    </header>
 
 		<section class="article-content">
 		<ul>

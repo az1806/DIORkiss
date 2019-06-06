@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <ul id="pro-category">
                 <%for(int i=0;i<cpfl.size();i++){ %>
                     <li class="on">
-                        <a href="productlist?type=<%=cpfl.get(i).getTid()%>"><%=cpfl.get(i).getName()%></a></li>
+                        <a href="productlist?type=<%=cpfl.get(i).getId()%>"><%=cpfl.get(i).getName()%></a></li>
                     <%} %>
                 </ul>
             </li>

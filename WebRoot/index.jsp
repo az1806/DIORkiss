@@ -113,7 +113,7 @@
 				for (int i = 0; i < cos.size(); i++) {
 			%>
 			<div class="am-u-sm-6 am-u-md-6 am-u-lg-4">
-				<a href="product_info?type=<%=cos.get(i).getId()%>"> <img src="<%=cos.get(i).getImg()%>"/> <%=cos.get(i).getName()%>
+				<a href="productdetails?type=<%=cos.get(i).getId()%>"> <img src="<%=cos.get(i).getImg()%>"/> <%=cos.get(i).getName()%>
 					 </a>
 			</div>
 			<%
@@ -129,16 +129,15 @@
 	<div class="index-content">
 		<div class="new-index">
 		<ul>
-                <li>
-			<img src="<%cos.get(0).getImg();%>" style:"width='30px',height='40px'"></img></li>
-                <li>  <a href="article_list_content?type=<%=zxfl.get(0).getTid()%>"><h3><%=cos.get(0).getName() %></h3>
+                <li><img src="img/block13.jpg"></img></li>
+                <li>  <a href="article_list_content?type=<%=zxfl.get(0).getId()%>"><h3><%=cos.get(0).getName() %></h3>
                     <article><%=cos.get(0).getEffect() %></article></a></li>
             </ul>
 			
 			<ul>
 			
 			<%for(int i=1;i<cos.size();i++){ %>
-				<li><a href="article_list_content?type=<%=zxfl.get(i).getTid()%>"><h3><%=cos.get(i).getName() %></h3> <article><%=cos.get(i).getEffect() %></article>
+				<li><a href="article_list_content?type=<%=zxfl.get(i).getId()%>"><h3><%=cos.get(i).getName() %></h3> <article><%=cos.get(i).getEffect() %></article>
 				</a></li>
 				<%} %>
 			</ul>

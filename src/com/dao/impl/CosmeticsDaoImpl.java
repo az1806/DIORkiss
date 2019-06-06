@@ -71,7 +71,7 @@ public class CosmeticsDaoImpl implements CosmeticsDao {
 	}
 	public ArrayList<Cosmetics> selectCosmetics() {
 		ArrayList<Cosmetics> cos = new ArrayList<Cosmetics>();
-		ResultSet rs = JdbcUtil.querySQL("select * FROM cosmetics ORDER BY RAND() LIMIT 6");
+		ResultSet rs = JdbcUtil.querySQL("select * FROM cosmetics ORDER BY RAND() LIMIT 3");
 		if (rs != null) {
 			try {
 				while (rs.next()) {

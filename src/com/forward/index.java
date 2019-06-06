@@ -71,18 +71,12 @@ public class index extends HttpServlet {
 		int type;
 		if(request.getParameter("type")==null){
 			type=cpfl.get(0).getId();
-			
-			
 		}else{
 			type=Integer.parseInt(request.getParameter("type"));
-			
-			
 		}
-		
 		CosmeticsDao cosmeticsDao = new CosmeticsDaoImpl();
 		ArrayList<Cosmetics> co = cosmeticsDao.selectCosmetics(type);
 		request.setAttribute("Cosmetics", co);
-
 		request.setAttribute("cpfl", cpfl);		
 		
 		
@@ -91,14 +85,9 @@ public class index extends HttpServlet {
 		int n;
 		if(request.getParameter("type")==null){
 			n=cpfl.get(0).getId();
-			
-			
 		}else{
 			n=Integer.parseInt(request.getParameter("type"));
-			
-			
 		}
-		
 		ZiXunDao zxdao = new ZiXunDaoImpl();
 		ArrayList<ZiXun> zx = zxdao.selectZiXun(n);
 		request.setAttribute("zixun", zx);

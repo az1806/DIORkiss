@@ -16,11 +16,10 @@ public class ChanPinFenLeiDaoImpl implements ChanPinFenLeiDao {
 		// 查询限定行数
 		try {
 			while (rs.next()) {
-				cpfl.setId(rs.getInt(1));
-				cpfl.setName(rs.getString(4));
-				cpfl.setTid(rs.getInt(3));
-				cpfl.setClasst(rs.getString(2));
-				cpfl.setImg(rs.getString(5));
+				cpfl.setId(rs.getInt("id"));
+				cpfl.setName(rs.getString("name"));
+				cpfl.setClasst(rs.getString("classt"));
+				cpfl.setImg(rs.getString("img"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -38,11 +37,10 @@ public class ChanPinFenLeiDaoImpl implements ChanPinFenLeiDao {
 			try {
 				while (rs.next()) {
 					ChanPinFenLei cpfl = new ChanPinFenLei();
-					cpfl.setId(rs.getInt(1));
-					cpfl.setName(rs.getString(4));
-					cpfl.setTid(rs.getInt(3));
-					cpfl.setClasst(rs.getString(2));
-					cpfl.setImg(rs.getString(5));
+					cpfl.setId(rs.getInt("id"));
+					cpfl.setName(rs.getString("name"));
+					cpfl.setClasst(rs.getString("classt"));
+					cpfl.setImg(rs.getString("img"));
 					cpfls.add(cpfl);
 				}
 			} catch (SQLException e) {
@@ -57,16 +55,15 @@ public class ChanPinFenLeiDaoImpl implements ChanPinFenLeiDao {
 	public ArrayList<ChanPinFenLei> selectChanPinFenLei(int type) {
 		ArrayList<ChanPinFenLei> cpfls = new ArrayList<ChanPinFenLei>();
 
-		ResultSet rs = JdbcUtil.querySQL("select * from ChanPinFenLei where tid="+type);
+		ResultSet rs = JdbcUtil.querySQL("select * from ChanPinFenLei where id="+type);
 		if (rs != null) {
 			try {
 				while (rs.next()) {
 					ChanPinFenLei cpfl = new ChanPinFenLei();
-					cpfl.setId(rs.getInt(1));
-					cpfl.setName(rs.getString(4));
-					
-					cpfl.setClasst(rs.getString(2));
-					cpfl.setImg(rs.getString(5));
+					cpfl.setId(rs.getInt("id"));
+					cpfl.setName(rs.getString("name"));
+					cpfl.setClasst(rs.getString("classt"));
+					cpfl.setImg(rs.getString("img"));
 					cpfls.add(cpfl);
 				}
 			} catch (SQLException e) {

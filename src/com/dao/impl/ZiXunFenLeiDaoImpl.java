@@ -18,10 +18,9 @@ public class ZiXunFenLeiDaoImpl implements ZiXunFenLeiDao {
 		// 查询限定行数
 		try {
 			while (rs.next()) {
-				zxfl.setId(rs.getInt(1));
-				zxfl.setChanpinname(rs.getString(2));
-				zxfl.setTid(rs.getInt(4));
-				zxfl.setContent(rs.getString(3));
+				zxfl.setId(rs.getInt("id"));
+				zxfl.setName(rs.getString("name"));
+				zxfl.setContent(rs.getString("content"));
 				
 			}
 		} catch (SQLException e) {
@@ -40,10 +39,9 @@ public class ZiXunFenLeiDaoImpl implements ZiXunFenLeiDao {
 			try {
 				while (rs.next()) {
 					ZiXunFenLei zxfl = new ZiXunFenLei();
-					zxfl.setId(rs.getInt(1));
-					zxfl.setChanpinname(rs.getString(2));
-					zxfl.setTid(rs.getInt(4));
-					zxfl.setContent(rs.getString(3));
+					zxfl.setId(rs.getInt("id"));
+					zxfl.setName(rs.getString("name"));
+					zxfl.setContent(rs.getString("content"));
 					zxfls.add(zxfl);
 				}
 			} catch (SQLException e) {
@@ -63,10 +61,9 @@ public class ZiXunFenLeiDaoImpl implements ZiXunFenLeiDao {
 			try {
 				while (rs.next()) {
 					ZiXunFenLei zxfl = new ZiXunFenLei();
-					zxfl.setId(rs.getInt(1));
-					zxfl.setChanpinname(rs.getString(2));
-					zxfl.setTid(rs.getInt(4));
-					zxfl.setContent(rs.getString(3));
+					zxfl.setId(rs.getInt("id"));
+					zxfl.setName(rs.getString("name"));
+					zxfl.setContent(rs.getString("content"));
 					zxfls.add(zxfl);
 				}
 			} catch (SQLException e) {
