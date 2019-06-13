@@ -119,6 +119,48 @@
     <servlet-name>Product_infot</servlet-name>
     <servlet-class>com.forward.Product_infot</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>com.servlet.admin.IndexServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ZiXunServlet</servlet-name>
+    <servlet-class>com.servlet.admin.ZiXunServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CompanyServlet</servlet-name>
+    <servlet-class>com.servlet.admin.CompanyServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DesignerServlet</servlet-name>
+    <servlet-class>com.servlet.admin.DesignerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SmartUploadServlet</servlet-name>
+    <servlet-class>com.servlet.admin.SmartUploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SelectServlet</servlet-name>
+    <servlet-class>com.servlet.admin.SelectServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
 
 
 
@@ -213,7 +255,44 @@
   <servlet-mapping>
     <servlet-name>Product_infot</servlet-name>
     <url-pattern>/product_infot</url-pattern>
-  </servlet-mapping>	
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/admin/index</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ZiXunServlet</servlet-name>
+    <url-pattern>/admin/zixun</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CompanyServlet</servlet-name>
+    <url-pattern>/admin/company</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DesignerServlet</servlet-name>
+    <url-pattern>/admin/designer</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SmartUploadServlet</servlet-name>
+    <url-pattern>/admin/smart</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectServlet</servlet-name>
+    <url-pattern>/admin/select</url-pattern>
+  </servlet-mapping>
+  
+  
+ <filter>
+  <filter-name>LoginFilter</filter-name>
+  <filter-class>com.DIORkiss.filter.LoginFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  <filter-name>LoginFilter</filter-name>
+  <url-pattern>/admin/*</url-pattern>
+  </filter-mapping>
+  
+  
   <welcome-file-list>
     <welcome-file>index</welcome-file>
   </welcome-file-list>

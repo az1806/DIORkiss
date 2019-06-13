@@ -44,16 +44,10 @@ public class UserDaoImpl implements UserDao {
 
 		return users;
 	}
-	/**
-	 * 删除信息
-	 */
-	
-/**
- * 查询用户信息
- */
-	public User selectUserByName(String name) {
+
+	public User selectUserByName(String name,String password) {
 		ResultSet rs = JdbcUtil
-				.querySQL("select * from user where username = '" + name + "'");
+				.querySQL("select * from user where username = '" + name + "'and password='"+password+"'");
 		if (rs != null) {
 			try {
 				while (rs.next()) {
@@ -61,8 +55,6 @@ public class UserDaoImpl implements UserDao {
 					u.setId(rs.getInt("id"));
 					u.setUsername(rs.getString("username"));
 					u.setPwd(rs.getString("password"));
-					
-					
 					return u;
 				}
 			} catch (SQLException e) {
@@ -70,7 +62,6 @@ public class UserDaoImpl implements UserDao {
 				e.printStackTrace();
 			}
 		}
-
 		return null;
 	}
 

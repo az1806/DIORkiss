@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </header>
 
     <section class="article-content">
-            <h4><%=zx.getName() %></h4>
+            <h4><%=zx.getH() %></h4>
         <main>
             <%=zx.getContent() %>
         </main>

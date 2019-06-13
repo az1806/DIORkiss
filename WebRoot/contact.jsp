@@ -1,9 +1,10 @@
+<%@page import="com.entity.Company"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<% Company  com=(Company)request.getAttribute("company"); %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="zh-cn">
 <head>
@@ -51,19 +52,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <iframe src="map" width="636" height="378" frameborder="0" scrolling="no"></iframe>
         <ul>
             <li>
-                <span><img src="images/contact1.png"/></span>
+                <span></span>
                 <h2>联系我们</h2>
-                <p>电话:0714-457878</p>
+                <p><%=com.getPhone() %></p>
             </li>
             <li>
-                <span><img src="images/contact2.png"/></span>
+                <span></span>
                 <h2>公司地址</h2>
-                <p>地址:湖北省大冶市大冶大道116号金穗小区B栋201号</p>
+                <p><%=com.getAddress() %></p>
             </li>
             <li>
-                <span><img src="images/contact3.png"/></span>
+                <span></span>
                 <h2>电子邮箱</h2>
-                <p>邮箱:123@dayeyunalading.com</p>
+                <p><%=com.getEmail() %></p>
             </li>
         </ul>
     </main>

@@ -11,32 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.ChanPinFenLeiDao;
 import com.dao.CompanyDao;
-import com.dao.CosmeticsDao;
 import com.dao.DongTaiDao;
-import com.dao.FuZhuangDao;
-import com.dao.KouHongDao;
 import com.dao.LiuYanDao;
-import com.dao.XiangShuiDao;
 import com.dao.ZiXunDao;
 import com.dao.ZiXunFenLeiDao;
 import com.dao.impl.ChanPinFenLeiDaoImpl;
 import com.dao.impl.CompanyDaoImpl;
-import com.dao.impl.CosmeticsDaoImpl;
 import com.dao.impl.DongTaiDaoImpl;
-import com.dao.impl.FuZhuangDaoImpl;
-import com.dao.impl.KouHongDaoImpl;
 import com.dao.impl.LiuYanDaoImpl;
-import com.dao.impl.XiangShuiDaoImpl;
 import com.dao.impl.ZiXunDaoImpl;
 import com.dao.impl.ZiXunFenLeiDaoImpl;
 import com.entity.ChanPinFenLei;
 import com.entity.Company;
-import com.entity.Cosmetics;
 import com.entity.DongTai;
-import com.entity.FuZhuang;
-import com.entity.KouHong;
 import com.entity.LiuYan;
-import com.entity.XiangShui;
 import com.entity.ZiXun;
 import com.entity.ZiXunFenLei;
 
@@ -85,16 +73,6 @@ public class article_list extends HttpServlet {
 		LiuYanDao lydao = new LiuYanDaoImpl();
 		ArrayList<LiuYan> ly = lydao.selectLiuYan();
 		request.setAttribute("liuyan", ly);
-		
-		
-		
-	
-		
-		
-		
-		
-		
-		
 		
 		
 		DongTaiDao DongTai = new DongTaiDaoImpl();

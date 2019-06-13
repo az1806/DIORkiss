@@ -11,36 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.ChanPinFenLeiDao;
 import com.dao.CompanyDao;
-import com.dao.CosmeticsDao;
 import com.dao.DesignerDao;
 import com.dao.DongTaiDao;
-import com.dao.FuZhuangDao;
-import com.dao.KouHongDao;
 import com.dao.LiuYanDao;
-import com.dao.UserDao;
-import com.dao.XiangShuiDao;
 import com.dao.ZiXunDao;
 import com.dao.impl.ChanPinFenLeiDaoImpl;
 import com.dao.impl.CompanyDaoImpl;
-import com.dao.impl.CosmeticsDaoImpl;
 import com.dao.impl.DesignerDaoImpl;
 import com.dao.impl.DongTaiDaoImpl;
-import com.dao.impl.FuZhuangDaoImpl;
-import com.dao.impl.KouHongDaoImpl;
 import com.dao.impl.LiuYanDaoImpl;
-import com.dao.impl.UserDaoImpl;
-import com.dao.impl.XiangShuiDaoImpl;
 import com.dao.impl.ZiXunDaoImpl;
 import com.entity.ChanPinFenLei;
 import com.entity.Company;
-import com.entity.Cosmetics;
 import com.entity.Designer;
 import com.entity.DongTai;
-import com.entity.FuZhuang;
-import com.entity.KouHong;
 import com.entity.LiuYan;
-import com.entity.User;
-import com.entity.XiangShui;
 import com.entity.ZiXun;
 
 public class about extends HttpServlet {

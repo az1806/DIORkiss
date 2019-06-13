@@ -39,23 +39,23 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" href="css/default.min.css?t=227" />
-<!--[if (gte IE 9)|!(IE)]><!-->
-<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
-<!--<![endif]-->
-<!--[if lte IE 8 ]>
-<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="lib/amazeui/amazeui.ie8polyfill.min.js"></script>
-<![endif]-->
 <script type="text/javascript" src="lib/handlebars/handlebars.min.js"></script>
 <script type="text/javascript" src="lib/iscroll/iscroll-probe.js"></script>
 <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
 <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+<style type="text/css">
+#ccc{
+width:180px;
+height:180px;
 
+}
+#ccd{
+width:180px;
+height:180px;
+
+}
+</style>
 </head>
 <% Company com = (Company) request.getAttribute("company"); %>
 <body>
@@ -78,17 +78,12 @@
 			<div class="index-auto">
 				
 				<%=com.getIntroduction()%>
-				<a class="index-button" href="#">产品系类</a>
+				<a class="index-button" href="#">产品系列</a>
 			</div>
 		</div>
 		</section>
 	</div>
 	</section>
-	
-
-
-
-
 	<section class="index-product"> <main>
 	<ul>
 		<%
@@ -97,7 +92,6 @@
 		<li><a href="productlist"><%=cpfl.get(i).getName() %>系列</a>
 		</li>
 		<%} %>
-		
 	</ul>
 	</main> <main></main> <main></main> </section>
 	<div class="copyrights">
@@ -112,8 +106,8 @@
 			<%
 				for (int i = 0; i < cos.size(); i++) {
 			%>
-			<div class="am-u-sm-6 am-u-md-6 am-u-lg-4">
-				<a href="productdetails?type=<%=cos.get(i).getId()%>"> <img src="<%=cos.get(i).getImg()%>"/> <%=cos.get(i).getName()%>
+			<div class="am-u-sm-6 am-u-md-6 am-u-lg-4" >
+				<a href="productdetails?type=<%=cos.get(i).getId()%>"> <img id="ccc" src="<%=cos.get(i).getImg()%>"/> <%=cos.get(i).getName()%>
 					 </a>
 			</div>
 			<%
@@ -129,13 +123,11 @@
 	<div class="index-content">
 		<div class="new-index">
 		<ul>
-                <li><img src="img/block13.jpg"></img></li>
+                <li><img src="img/block13.jpg" id="ccd"></img></li>
                 <li>  <a href="article_list_content?type=<%=zxfl.get(0).getId()%>"><h3><%=cos.get(0).getName() %></h3>
                     <article><%=cos.get(0).getEffect() %></article></a></li>
             </ul>
-			
 			<ul>
-			
 			<%for(int i=1;i<cos.size();i++){ %>
 				<li><a href="article_list_content?type=<%=zxfl.get(i).getId()%>"><h3><%=cos.get(i).getName() %></h3> <article><%=cos.get(i).getEffect() %></article>
 				</a></li>
@@ -145,9 +137,7 @@
 		</div>
 	</div>
 	</section>
-
 	﻿<jsp:include page="bottom.jsp"></jsp:include>
-
 </body>
 
 </html>

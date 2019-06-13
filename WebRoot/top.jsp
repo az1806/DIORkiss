@@ -36,14 +36,30 @@
 <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
 <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
+<style type="text/css">
+#ccs{
+width:207px;
+height:77px;
+}
+#cca{
+
+height:100px;
+
+}
+#ccf{
+
+height:142px;
+
+}
+</style>
 </head>
 
 <body  >
-	<header>
+	<header id="ccf">
 	<div class="header-top">
-		<div class="width-center">
+		<div class="width-center" id="cca">
 			<div class="header-logo ">
-				<img src="<%=com.getImg()%>"  style:" width='200px',height='100px',folat='left'";>
+				<img src="<%=com.getImg()%> " id="ccs">
 			</div>
 			<div class="header-title div-inline">
 				<strong>
@@ -59,13 +75,10 @@
 			<div class="search-box div-inline">
 				<div class="input-box">
 					<input type="text" name="" placeholder="             请输入关键字">
-					
-				</div>
-				<div class="search-botton"></div>
 			</div>
 		</div>
 	</div>
-	<div class="header-nav">
+	<div class="header-nav" >
 		<button class="am-show-sm-only am-collapsed font f-btn"
 			data-am-collapse="{target: '.header-nav'}">
 			Menu <i class="am-icon-bars"></i>
@@ -81,18 +94,11 @@
 			<li><a href="article_list" name="new">新闻资讯</a>
 			</li>
 			<li><a href="contact" name="message">联系我们</a>
-				<div class="secondary-menu">
-
-					<ul>
-						<li><a href="message" class="message"></a>
-						</li>
-					</ul>
-				</div></li>
+			 <div class="secondary-menu" >
+                    <ul><li ><a href="message" class="message"></a></li></ul>
+                </div>
+		    </li>
 		</ul>
-
-
-
-
 		</nav>
 	</div>
 

@@ -20,8 +20,6 @@ public class ZiXunFenLeiDaoImpl implements ZiXunFenLeiDao {
 			while (rs.next()) {
 				zxfl.setId(rs.getInt("id"));
 				zxfl.setName(rs.getString("name"));
-				zxfl.setContent(rs.getString("content"));
-				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -41,7 +39,6 @@ public class ZiXunFenLeiDaoImpl implements ZiXunFenLeiDao {
 					ZiXunFenLei zxfl = new ZiXunFenLei();
 					zxfl.setId(rs.getInt("id"));
 					zxfl.setName(rs.getString("name"));
-					zxfl.setContent(rs.getString("content"));
 					zxfls.add(zxfl);
 				}
 			} catch (SQLException e) {
@@ -63,7 +60,6 @@ public class ZiXunFenLeiDaoImpl implements ZiXunFenLeiDao {
 					ZiXunFenLei zxfl = new ZiXunFenLei();
 					zxfl.setId(rs.getInt("id"));
 					zxfl.setName(rs.getString("name"));
-					zxfl.setContent(rs.getString("content"));
 					zxfls.add(zxfl);
 				}
 			} catch (SQLException e) {
@@ -75,4 +71,36 @@ public class ZiXunFenLeiDaoImpl implements ZiXunFenLeiDao {
 		return zxfls;
 	}
 
+	public int addzxfl( String name) {
+		
+		return JdbcUtil.updateSQL("INSERT into zixunfenlei(name) VALUES('"+name+"')");
+	}
+
+	public int delzxfl(int id) {
+		
+		return JdbcUtil.updateSQL("delete from zixunfenlei where id="+id);
+	}
+
+
+	public ZiXunFenLei onezxfl(int id) {
+		ZiXunFenLei zxfl = new ZiXunFenLei();
+		ResultSet rs = JdbcUtil.querySQL("select * from ZiXunFenLei where id="+id);
+		// 查询限定行数
+		try {
+			while (rs.next()) {
+				zxfl.setId(rs.getInt("id"));
+				zxfl.setName(rs.getString("name"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return zxfl;
+	}
+
+	public int updatezxfl(int id,String name) {
+		
+		return JdbcUtil.updateSQL("UPDATE zixunfenlei SET name='"+name+"' WHERE id='"+id+"' ");
+	}
 }

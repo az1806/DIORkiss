@@ -17,11 +17,11 @@ public class LiuYanDaoImpl implements LiuYanDao{
 		//查询限定行数
 		try {
 			while (rs.next()) {
-				ly.setId(rs.getInt(1));
-				ly.setName(rs.getString(2));
-				ly.setPhone(rs.getString(3));
-			    ly.setEmail(rs.getString(4));
-				ly.setContent(rs.getString(5));
+				ly.setId(rs.getInt("id"));
+				ly.setName(rs.getString("name"));
+				ly.setPhone(rs.getString("phone"));
+				ly.setEmail(rs.getString("email"));
+				ly.setContent(rs.getString("content"));
 			}
 
 		} catch (SQLException e) {
@@ -40,11 +40,12 @@ public class LiuYanDaoImpl implements LiuYanDao{
 			try {
 				while (rs.next()) {
 					LiuYan u = new LiuYan();
-					u.setId(rs.getInt(1));
-					u.setName(rs.getString(2));
-					u.setPhone(rs.getString(3));
-					u.setEmail(rs.getString(4));
-					u.setContent(rs.getString(5));
+					u.setId(rs.getInt("id"));
+					u.setName(rs.getString("name"));
+					u.setPhone(rs.getString("phone"));
+					u.setEmail(rs.getString("email"));
+					u.setContent(rs.getString("content"));
+					u.setHf(rs.getString("hf"));
 					zxs.add(u);
 				}
 			} catch (SQLException e) {
@@ -64,4 +65,57 @@ public class LiuYanDaoImpl implements LiuYanDao{
 		return 0;
 	}
 
+	public LiuYan oneLiuYan(int id) {
+		LiuYan ly = new LiuYan();
+		ResultSet rs = JdbcUtil.querySQL("select * from LiuYan where id='"+id+"'");
+		//查询限定行数
+		try {
+			while (rs.next()) {
+				ly.setId(rs.getInt("id"));
+				ly.setName(rs.getString("name"));
+				ly.setPhone(rs.getString("phone"));
+				ly.setEmail(rs.getString("email"));
+				ly.setContent(rs.getString("content"));
+				ly.setHf(rs.getString("hf"));
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return ly;
+	}
+
+	public int addliuyan(int id, String hf) {
+		return JdbcUtil.updateSQL("UPDATE liuyan SET hf='"+hf+"' where id='"+id+"'");
+	}
+	public int delly(int id) {
+		return JdbcUtil.updateSQL("delete from liuyan where id=" + id);
+	}
+
+	public ArrayList<LiuYan> chaxunly(String zt) {
+		ArrayList<LiuYan> lys = new ArrayList<LiuYan>();
+
+		ResultSet rs = JdbcUtil.querySQL("select * from LiuYan where hf like '%"+zt+"%'");
+		if (rs != null) {
+			try {
+				while (rs.next()) {
+					LiuYan u = new LiuYan();
+					u.setId(rs.getInt("id"));
+					u.setName(rs.getString("name"));
+					u.setPhone(rs.getString("phone"));
+					u.setEmail(rs.getString("email"));
+					u.setContent(rs.getString("content"));
+					u.setHf(rs.getString("hf"));
+					lys.add(u);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return lys;
+	}
 }

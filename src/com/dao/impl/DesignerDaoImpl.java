@@ -33,5 +33,36 @@ public class DesignerDaoImpl implements DesignerDao {
 
 		return des;
 	}
+	public int adddes(String name, String position, String img) {
+		return JdbcUtil.updateSQL("INSERT into designer (name,position,img) VALUES('"+name+"','"+position+"','"+img+"')");
+	}
 
+	public int deldesigner(int id) {
+		
+		return JdbcUtil.updateSQL("delete from designer where id="+id);
+	}
+
+	public Designer onedesigner(int id) {
+		Designer des = new Designer();
+		ResultSet rs = JdbcUtil.querySQL("select * from Designer where id="+id);
+		if (rs != null) {
+			try {
+				while (rs.next()) {
+					des.setId(rs.getInt("id"));
+					des.setName(rs.getString("name"));
+					des.setImg(rs.getString("img"));
+					des.setPosition(rs.getString("position"));
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return des;
+	}
+
+	public int updatedes(int id,String name, String position, String img) {
+		
+		return JdbcUtil.updateSQL("update designer set name='"+name+"',position='"+position+"',img='"+img+"' where id="+id);
+	}
 }

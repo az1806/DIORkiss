@@ -41,6 +41,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
 <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
+<style type="text/css">
+#asdx{
+padding-top: 0px;
+margin-left: 200px;
+margin-top: 0px;
+}
+</style>
 </head>
 <body>
 <jsp:include page="top.jsp"></jsp:include>
@@ -71,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <aside class="pro-rightsidebar">
         <header>
             <p></p>
-            <span>椅子系列</span>
+            <span>系列</span>
             <div class="product-nav"><a href="index">首页 </a>&#62;<a href="#">产品展示</a>&#62;<a><%=cos.getName()%> </a></div>
         </header>
         <main>
@@ -89,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
 				
             </div>
-            <div class="pro-right-right">
+            <div class="pro-right-right" id="asdx">
                 <ul class="pro-right-info-constant">
                     <li>产品名称:</li>
                     <li>产品分类:</li>

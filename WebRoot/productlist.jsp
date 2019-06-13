@@ -21,22 +21,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="css/default.min.css?t=227" />
 <!--[if (gte IE 9)|!(IE)]><!-->
 <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
-<!--<![endif]-->
-<!--[if lte IE 8 ]>
-<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="lib/amazeui/amazeui.ie8polyfill.min.js"></script>
-<![endif]-->
 <script type="text/javascript" src="lib/handlebars/handlebars.min.js"></script>
 <script type="text/javascript" src="lib/iscroll/iscroll-probe.js"></script>
 <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
 <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
+<style type="text/css">
+#ccx{
+width:200px;
+height:200px;
+}
+</style>
 </head>
 
 	<%
-				ArrayList<Cosmetics> cos = (ArrayList<Cosmetics>) request
-				.getAttribute("Cosmetics");
+				
 				ArrayList<ChanPinFenLei> cpfl = (ArrayList<ChanPinFenLei>) request
 				.getAttribute("cpfl");
 	%>
@@ -52,7 +51,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li>
                 <a>产品搜索</a>
                 <ul id="pro-search">
-                    <li><a href="product_infot"><input type="text"  class="pro-search" name="sousuo" ><a class="pro-search-btn"  href="product_infot">搜索</a></a></li>
+                    <li><form method="get" action="productlist">
+                    <input type="text"  class="pro-search" name="sousuo" >
+                    <input type="submit" value="搜索">
+                    </form></li>
                 </ul>
             </li>
             <li>
@@ -74,29 +76,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <span>系列</span>
         </header>
         <ul>
+        <%if(request.getParameter("sousuo")!=null){ %>
+        <%ArrayList<Cosmetics> cost = (ArrayList<Cosmetics>) request
+				.getAttribute("cosmeticst");  %>
+				<%for(int i=0;i<cost.size();i++){ %>
+            <li >
+                <a href="productdetails?type=<%=cost.get(i).getId() %>">
+                <div class="img-box">
+               
+                    <img src="<%=cost.get(i).getImg() %>" id="ccx">
+                    <p><%=cost.get(i).getName() %></p>
+                </div>
+                </a>
+            </li>
+            <%} %>
+        <%}else{ %>
+        <%ArrayList<Cosmetics> cos = (ArrayList<Cosmetics>) request
+				.getAttribute("Cosmetics"); %>
         <%for(int i=0;i<cos.size();i++){ %>
             <li >
                 <a href="productdetails?type=<%=cos.get(i).getId() %>">
                 <div class="img-box">
                
-                    <img src="<%=cos.get(i).getImg() %>">
+                    <img src="<%=cos.get(i).getImg() %>" id="ccx">
                     <p><%=cos.get(i).getName() %></p>
                 </div>
                 </a>
             </li>
             <%} %>
+           <%} %> 
         </ul>
-		<!--
-        <div class="pro_list_more_pages">
-            <ul>
-                <li><a>上一页</a></li>
-                <li class="pro-list-current"><a>1</a></li>
-                <li><a>2</a></li>
-                <li><a>3</a></li>
-                <li><a>下一页</a></li>
-            </ul>
-        </div>
-		-->
+		
     </aside>
 
 

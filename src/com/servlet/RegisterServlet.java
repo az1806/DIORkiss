@@ -71,7 +71,7 @@ public class RegisterServlet extends HttpServlet {
 			UserDao ud = new UserDaoImpl();
 			if (ud.insertUser(username, pwd)) {
 				out.print("注册成功！");
-				out.print("<a href = \"/DIORkiss/login.jsp\">点击登录</a>");
+				out.print("<a href = \"admin/login.jsp\">点击登录</a>");
 			} else {
 				out.print("用户名已存在！");
 			}

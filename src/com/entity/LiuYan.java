@@ -7,24 +7,53 @@ public class LiuYan {
 	private String phone;
 	private String email;
     private String content;
+    private String hf;
     
     
-    
-	public LiuYan() {
-	
+	public String getHf() {
+		return hf;
 	}
-	
-    
-   
+
+
+
+
+
+
+
+	public void setHf(String hf) {
+		this.hf = hf;
+	}
+
+
+
+
+
+
+
 	public LiuYan(int id, String name, String phone, String email,
-			String content) {
+			String content, String hf) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
 		this.content = content;
+		this.hf = hf;
 	}
+
+
+
+
+
+
+
+	public LiuYan() {
+	
+	}
+	
+    
+   
+	
 
 
 
@@ -91,8 +120,17 @@ public class LiuYan {
 	@Override
 	public String toString() {
 		return "LiuYan [id=" + id + ", name=" + name + ", phone=" + phone
-				+ ", email=" + email + ", content=" + content + "]";
+				+ ", email=" + email + ", content=" + content + ", hf=" + hf
+				+ "]";
 	}
+
+
+
+
+
+
+
+
     
     
     

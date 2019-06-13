@@ -81,7 +81,7 @@ ArrayList<ZiXun> zx=(ArrayList<ZiXun>) request.getAttribute("zixun");
 					<p><%=sdf.format(new Date())%></p>
 				</div>
 				<div class="article-info">
-					<a href="article_list_content">
+					<a href="article_list_content?type=<%=zx.get(i).getId()%>">
 						<h3><%=zx.get(i).getH() %></h3>
 						<p><%=zx.get(i).getContent()%></p> </a>
 				</div></li>

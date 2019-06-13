@@ -8,7 +8,6 @@ public class Company {
 	private String email;
 	private String culture;
 	private String introduction;
-	private String beiyong;
 	private String img;
 	
 	public int getId() {
@@ -53,12 +52,7 @@ public class Company {
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
 	}
-	public String getBeiyong() {
-		return beiyong;
-	}
-	public void setBeiyong(String beiyong) {
-		this.beiyong = beiyong;
-	}
+	
 	public String getImg() {
 		return img;
 	}
@@ -67,7 +61,7 @@ public class Company {
 	}
 	
 	public Company(int id, String name, String phone, String address,
-			String email, String culture, String introduction, String beiyong,
+			String email, String culture, String introduction, 
 			String img) {
 		super();
 		this.id = id;
@@ -77,7 +71,6 @@ public class Company {
 		this.email = email;
 		this.culture = culture;
 		this.introduction = introduction;
-		this.beiyong = beiyong;
 		this.img = img;
 	}
 	public Company() {
@@ -87,8 +80,8 @@ public class Company {
 	public String toString() {
 		return "Company [id=" + id + ", name=" + name + ", phone=" + phone
 				+ ", address=" + address + ", email=" + email + ", culture="
-				+ culture + ", introduction=" + introduction + ", beiyong="
-				+ beiyong + ", img=" + img + "]";
+				+ culture + ", introduction=" + introduction + ", img=" + img
+				+ "]";
 	}
-	
+
 }

@@ -25,5 +25,5 @@ public interface UserDao {
 	 * @param name
 	 * @return
 	 */
-	User selectUserByName(String name);
+	User selectUserByName(String name,String password);
 }

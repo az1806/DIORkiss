@@ -36,12 +36,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
 <script type="text/javascript">
 function checkForm(){
-var contactWay=document.getElementById("contentWay").value;
+var contactWay=document.getElementById("contactWay").value;
 var contact=document.getElementById("content").value;
-if(contentWay==""){
+if(contactWay==""){
 alert("联系方式不能为空！");
 return false;
-if(content==""){
+}
+if(contact==""){
 alert("留言信息不能为空！");
 return false;
 }
@@ -70,8 +71,6 @@ return true;
            <input type="text" id="contactWay" name="phone">
            <span>*</span>
        </label>
-
-
        <label>邮箱
            <input type="email"  name="email">
            <span>*</span>
@@ -79,7 +78,7 @@ return true;
 
 
        <label>内容
-           <textarea name="content" id="content"> </textarea>
+           <input name="content" id="content">
            <span>*</span>
        </label>
 

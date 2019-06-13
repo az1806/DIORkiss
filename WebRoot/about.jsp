@@ -32,6 +32,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
 <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
+<style>
+#ccz{
+width:100%;
+height:300px;
+}
+#asdf{
+width:142.8px;
+height:247.2px;
+}
+#qwe{
+      	margin: 200px;
+       width: 80%;
+       height:350px;
+        	}
+        	
+   #body{
+ background-image:url(img/beijing.jpg);
+        		
+	}
+</style>
 </head>
 <% Company com = (Company) request.getAttribute("company"); 
  ArrayList<Designer> des=(ArrayList<Designer>) request.getAttribute("des");
@@ -49,8 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </span>
         <span></span>
     </div>
-    <div></div>
-    <div class="about-content">
+    <div class="about-content"  id="ccz">
         <div class="about-image" ></div>
 
         <article style="background-color: aqua;><p "><%=com.getCulture() %></p>
@@ -59,36 +78,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     </div>
 
-    <div class="about-box">
+    <div class="about-box" id="qwe">
         <div class="about-leftbox">
-            <img src="img/block11.jpg"></img>
+            <img src="img/block11.jpg" style="height:500px;width:500px"></img>
         </div>
         <div class="about-rightbox">
             <h1>品牌识别</h1>
-            <p>pinpaishibie</p>
-            <article><%=com.getBeiyong() %></article>
+            <article><%=com.getIntroduction() %></article>
         </div>
     </div>
 
     <div class="about-team">
         <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
             <p >关于我们</p>
-            <span>WE ARE TEAM</span>
+            <span><i>变态严管塑强者，死磕自己赢尊严</i><span>
         </div>
         <div class="about-team-headimg">
         <%for(int i=0;i<des.size();i++) {%>
         <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
-            <img src="<%=des.get(i).getImg() %>" alt="">
+            <img src="<%=des.get(i).getImg() %>" alt="" id="asdf">
             <p><%=des.get(i).getName() %></p>
             <span><%=des.get(i).getPosition() %></span>
         </div>
        <%} %>
         </div>
-        <div class="about-slogan">
-            <div>
-            <p></p>
-            </div>
-        </div>
+        
     </div>
 </section>
 
